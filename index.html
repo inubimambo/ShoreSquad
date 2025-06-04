@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShoreSquad</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="fancy-header">
+    <div class="header-content">
+      <span class="logo-emoji" aria-label="wave">🌊</span>
+      <h1>ShoreSquad</h1>
+      <p>Rally your crew, track weather, and hit the next beach cleanup!</p>
+      <nav class="header-nav">
+        <button onclick="scrollToSection('map-section')">Find a Cleanup</button>
+        <button onclick="scrollToSection('weather-section')">Weather</button>
+        <button onclick="scrollToSection('events-section')">Upcoming</button>
+        <button onclick="scrollToSection('impact-section')">Impact</button>
+        <button onclick="scrollToSection('team-section')">Squad</button>
+      </nav>
+    </div>
+    <div class="floating-emojis">
+      <span>🌊</span><span>🦀</span><span>☀️</span><span>🧹</span><span>🏖️</span>
+    </div>
+  </header>
+  <main>
+    <section id="map-section">
+      <h2>Find a Cleanup</h2>
+      <div id="map" aria-label="Beach Cleanup Map">
+        <!-- Google Maps iframe with pin at Pasir Ris (Next Cleanup) -->
+        <iframe
+          title="Next Cleanup Location: Pasir Ris"
+          width="100%"
+          height="300"
+          frameborder="0"
+          style="border:0; border-radius:8px;"
+          src="https://www.google.com/maps?q=1.381497,103.955574&hl=en&z=16&output=embed&markers=1.381497,103.955574|label:N"
+          allowfullscreen
+        ></iframe>
+        <p style="margin-top:0.5rem;"><strong>Next Cleanup:</strong> Pasir Ris (Street View Asia)</p>
+      </div>
+    </section>
+    <section id="weather-section">
+      <h2>Weather Tracker</h2>
+      <div id="today-weather" class="today-weather"></div>
+      <div id="weather-info" aria-live="polite"></div>
+    </section>
+    <section id="stats-section">
+      <h2>ShoreSquad Stats <span aria-label="chart" role="img">📊</span></h2>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-num">2,340</div><div class="stat-label">Volunteers</div></div>
+        <div class="stat-card"><div class="stat-num">5,800kg</div><div class="stat-label">Trash Collected</div></div>
+        <div class="stat-card"><div class="stat-num">42</div><div class="stat-label">Cleanups</div></div>
+        <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Beaches</div></div>
+        <div class="stat-card"><div class="stat-num">99%</div><div class="stat-label">Fun Level</div></div>
+      </div>
+    </section>
+    <section id="join-section">
+      <h2>Join Us <span aria-label="party" role="img">🎉</span></h2>
+      <p>Ready to make a difference? Click below to join the next cleanup!</p>
+      <button id="join-btn" class="join-btn">Join the Squad</button>
+    </section>
+    <section id="events-section">
+      <h2>Upcoming Cleanups <span aria-label="calendar" role="img">📅</h2>
+      <div class="events-grid">
+        <div class="event-card" data-lat="1.249404" data-lng="103.830321" data-location="Sentosa Beach">
+          <div class="event-date">8 Jun 2025</div>
+          <div class="event-location">Sentosa Beach</div>
+          <div class="event-action"><a href="#map-section" class="view-on-map">View on Map</a></div>
+        </div>
+        <div class="event-card" data-lat="1.303993" data-lng="103.912056" data-location="East Coast Park">
+          <div class="event-date">15 Jun 2025</div>
+          <div class="event-location">East Coast Park</div>
+          <div class="event-action"><a href="#map-section" class="view-on-map">View on Map</a></div>
+        </div>
+        <div class="event-card" data-lat="1.381497" data-lng="103.955574" data-location="Pasir Ris Park">
+          <div class="event-date">22 Jun 2025</div>
+          <div class="event-location">Pasir Ris Park</div>
+          <div class="event-action"><a href="#map-section" class="view-on-map">View on Map</a></div>
+        </div>
+        <div class="event-card" data-lat="1.390106" data-lng="103.987208" data-location="Changi Beach">
+          <div class="event-date">29 Jun 2025</div>
+          <div class="event-location">Changi Beach</div>
+          <div class="event-action"><a href="#map-section" class="view-on-map">View on Map</a></div>
+        </div>
+      </div>
+    </section>
+    <section id="impact-section">
+      <h2>Impact Tracker <span aria-label="beach" role="img">🌊</span></h2>
+      <ul id="impact-list">
+        <li>10kg @ East Coast <span aria-label="clap" role="img">👏</span> <span class="lah">(Steady lah!)</span> <span class="impact-date">2025-06-01</span></li>
+        <li>7kg @ Sentosa <span aria-label="sparkles" role="img">✨</span> <span class="impact-date">2025-05-25</span></li>
+        <li>5kg @ Pasir Ris <span aria-label="muscle" role="img">💪</span> <span class="impact-date">2025-05-18</span></li>
+        <li>8kg @ Changi Beach <span aria-label="wave" role="img">🌊</span> <span class="impact-date">2025-05-11</span></li>
+        <li>6kg @ Punggol <span aria-label="leaf" role="img">🍃</span> <span class="impact-date">2025-05-04</span></li>
+      </ul>
+    </section>
+    <section id="team-section">
+      <h2>Meet the Squad <span aria-label="sunglasses" role="img">😎</span></h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team member Alex" class="team-avatar"/>
+          <div class="team-name">Alex Tan</div>
+          <div class="team-role">Founder</div>
+          <div class="team-about">Hey! I started ShoreSquad to make beach cleanups fun and social. Love kopi and the sea! 🌊</div>
+        </div>
+        <div class="team-member">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team member Priya" class="team-avatar"/>
+          <div class="team-name">Priya Lim</div>
+          <div class="team-role">Community Lead</div>
+          <div class="team-about">I connect people for a cleaner SG! Ask me about our next event or best makan spots. 🍜</div>
+        </div>
+        <div class="team-member">
+          <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Team member Marcus" class="team-avatar"/>
+          <div class="team-name">Marcus Lee</div>
+          <div class="team-role">Tech & Maps</div>
+          <div class="team-about">Map geek, code ninja, and always up for a beach run. Let’s keep SG clean, lah!</div>
+        </div>
+        <div class="team-member">
+          <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team member Sarah" class="team-avatar"/>
+          <div class="team-name">Sarah Goh</div>
+          <div class="team-role">Design</div>
+          <div class="team-about">I make things look shiok! Passionate about art, nature, and bubble tea. 🎨🧋</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 ShoreSquad. Eco-action made fun!</p>
+  </footer>
+  <script src="js/app.js"></script>
+  <script src="js/weather.js"></script>
+  <!-- Tawk.to Squad Chat Widget -->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/64a1b2cfc2f1ac1e202b1234/1h4abcd5e'; // Replace with your Tawk.to property ID
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <script>
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+document.querySelectorAll('.view-on-map').forEach(button => {
+  button.addEventListener('click', function(event) {
+    event.preventDefault();
+    const card = this.closest('.event-card');
+    const lat = card.getAttribute('data-lat');
+    const lng = card.getAttribute('data-lng');
+    const location = card.getAttribute('data-location');
+    const mapFrame = document.getElementById('map').querySelector('iframe');
+    mapFrame.src = `https://www.google.com/maps?q=${lat},${lng}&hl=en&z=16&output=embed&markers=${lat},${lng}|label:N`;
+    document.querySelector('#map-section h2').innerText = `Find a Cleanup: ${location}`;
+    scrollToSection('map-section');
+  });
+});
+
+document.getElementById('join-btn').addEventListener('click', function() {
+  document.getElementById('join-popup').style.display = 'block';
+});
+
+function closeJoinPopup() {
+  document.getElementById('join-popup').style.display = 'none';
+}
+  </script>
+  <div id="join-popup" role="dialog" aria-modal="true" aria-labelledby="join-popup-title" style="display:none;">
+    <div id="join-popup-title"><strong>Thanks for joining, see you at the beach! 🌊</strong></div>
+    <div style="margin-top:0.7em;">You’re officially part of the ShoreSquad. Don’t forget your sunblock lah!</div>
+    <button class="close-btn" onclick="closeJoinPopup()">Close</button>
+  </div>
+</body>
+</html>
